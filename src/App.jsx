@@ -12,10 +12,36 @@ function App() {
     challenge: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you! We will be in touch soon about early access.');
+    
+    try {
+      const response = await fetch('https://formspree.io/f/manpdqyr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Thank you! We will be in touch soon about early access.');
+        // Clear the form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          role: '',
+          companySize: '',
+          challenge: ''
+        });
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   const handleChange = (e) => {
