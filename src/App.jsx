@@ -573,7 +573,7 @@ function App() {
 
         <footer className="py-8 px-4 bg-black border-t border-white/10">
           <div className="max-w-7xl mx-auto text-center text-gray-400">
-            <p>&copy; 2024 Multikor.ai - All rights reserved</p>
+            <p>&copy; {new Date().getFullYear()} Multikor.ai - All rights reserved</p>
           </div>
         </footer>
       </div>
