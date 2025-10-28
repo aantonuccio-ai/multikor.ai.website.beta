@@ -1,0 +1,85 @@
+# robots.txt for Multikor.ai
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://multikor.ai/sitemap.xml
+
+# ==========================================
+# AI SEARCH ENGINES & ASSISTANTS
+# Explicitly allow all major AI crawlers
+# ==========================================
+
+# OpenAI (ChatGPT Search & GPT models)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude AI)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: claude-web
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini, Bard, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Microsoft (Bing, Copilot)
+User-agent: BingBot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# Meta AI (Facebook/Instagram AI)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Other AI Crawlers
+User-agent: Cohere-AI
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ==========================================
+# SECURITY & PERFORMANCE
+# ==========================================
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 1
+
+# Disallow admin and private areas (add as needed)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
