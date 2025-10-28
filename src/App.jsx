@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, DollarSign, Target, Rocket } from 'lucide-react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -103,11 +103,22 @@ function App() {
             transform: rotate(5deg);
           }
         }
-        
+
+        @keyframes number-pulse {
+          0%, 100% {
+            transform: scale(1);
+            text-shadow: 0 0 15px currentColor;
+          }
+          50% {
+            transform: scale(1.02);
+            text-shadow: 0 0 20px currentColor;
+          }
+        }
+
         .animate-pulse-glow {
           animation: pulse-glow 2s ease-in-out infinite;
         }
-        
+
         .animate-spin-slow {
           animation: spin-slow 3s linear infinite;
         }
@@ -122,6 +133,10 @@ function App() {
 
         .animate-wiggle {
           animation: wiggle 2.5s ease-in-out infinite;
+        }
+
+        .animate-number-pulse {
+          animation: number-pulse 3s ease-in-out infinite;
         }
       `}</style>
 
@@ -230,18 +245,24 @@ function App() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-green-900/30 to-emerald-950/30 backdrop-blur-sm p-8 rounded-xl border border-green-500/30">
-                <div className="text-4xl mb-4">📈</div>
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-950/30 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition">
+                <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50 animate-float">
+                  <TrendingUp className="h-8 w-8 text-white animate-wiggle" />
+                </div>
                 <h3 className="text-xl font-bold text-white mb-2">Increase Margins 15-30%</h3>
                 <p className="text-gray-300">Reduce cost-per-process by 40-60% through intelligent automation while maintaining service quality. Your clients get better outcomes. You capture higher margins.</p>
               </div>
-              <div className="bg-gradient-to-br from-cyan-900/30 to-blue-950/30 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30">
-                <div className="text-4xl mb-4">🎯</div>
+              <div className="bg-gradient-to-br from-cyan-900/30 to-blue-950/30 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
+                  <Target className="h-8 w-8 text-white animate-pulse-icon" />
+                </div>
                 <h3 className="text-xl font-bold text-white mb-2">Win Outcome-Based Contracts</h3>
                 <p className="text-gray-300">76% of enterprise buyers now demand outcome-based pricing. Multikor gives you the automation infrastructure to profitably deliver guaranteed results and win more contracts.</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-900/30 to-pink-950/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30">
-                <div className="text-4xl mb-4">🚀</div>
+              <div className="bg-gradient-to-br from-purple-900/30 to-pink-950/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition">
+                <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-purple-500/50 animate-float">
+                  <Rocket className="h-8 w-8 text-white animate-pulse-glow" />
+                </div>
                 <h3 className="text-xl font-bold text-white mb-2">Scale Without Linear Headcount</h3>
                 <p className="text-gray-300">Automate high-volume operations across customer support (75% of tickets), F&A processes (60% automation), and procurement workflows (70% automation). Grow revenue without proportional cost growth.</p>
               </div>
@@ -440,24 +461,24 @@ function App() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30">
-                <div className="text-5xl font-bold text-cyan-400 mb-2">75%</div>
+              <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all group">
+                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">75%</div>
                 <h3 className="text-xl font-bold text-white mb-3">Customer Support</h3>
                 <p className="text-gray-300">
                   Automated ticket resolution with intelligent routing and response generation
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30">
-                <div className="text-5xl font-bold text-purple-400 mb-2">60%</div>
+              <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition-all group">
+                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>60%</div>
                 <h3 className="text-xl font-bold text-white mb-3">Finance & Accounting</h3>
                 <p className="text-gray-300">
                   Process automation across invoice processing, reconciliation, and reporting
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30">
-                <div className="text-5xl font-bold text-green-400 mb-2">70%</div>
+              <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition-all group">
+                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>70%</div>
                 <h3 className="text-xl font-bold text-white mb-3">Procurement</h3>
                 <p className="text-gray-300">
                   Automated workflows for PO processing, vendor management, and approvals
