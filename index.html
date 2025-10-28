@@ -38,6 +38,62 @@
     <meta name="language" content="English" />
     <meta name="author" content="Multikor.ai" />
     <link rel="canonical" href="https://multikor.ai/" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- AI Bot Analytics - Track all major AI search engines and assistants -->
+    <script>
+      // Detect and track AI bot visits
+      (function() {
+        const userAgent = navigator.userAgent.toLowerCase();
+
+        // Comprehensive list of AI crawlers and search engines
+        const aiBotPatterns = [
+          // OpenAI (ChatGPT)
+          { name: 'ChatGPT', patterns: ['gptbot', 'chatgpt-user', 'oai-searchbot'] },
+          // Anthropic (Claude)
+          { name: 'Claude', patterns: ['claudebot', 'anthropic-ai', 'claude-web'] },
+          // Perplexity
+          { name: 'Perplexity', patterns: ['perplexitybot', 'perplexity-user'] },
+          // Microsoft (Bing/Copilot)
+          { name: 'Bing/Copilot', patterns: ['bingbot', 'msnbot'] },
+          // Google (Gemini/Bard)
+          { name: 'Google Gemini', patterns: ['google-extended', 'googlebot'] },
+          // Meta AI
+          { name: 'Meta AI', patterns: ['meta-externalagent', 'facebookbot'] },
+          // Other AI crawlers
+          { name: 'Cohere', patterns: ['cohere-ai'] },
+          { name: 'You.com', patterns: ['youbot'] },
+          { name: 'DuckDuckGo', patterns: ['duckduckbot'] }
+        ];
+
+        // Check which AI bot is visiting
+        let detectedBot = null;
+        for (const bot of aiBotPatterns) {
+          if (bot.patterns.some(pattern => userAgent.includes(pattern))) {
+            detectedBot = bot.name;
+            break;
+          }
+        }
+
+        // Track AI bot visit in Google Analytics
+        if (detectedBot && typeof gtag !== 'undefined') {
+          gtag('event', 'ai_bot_visit', {
+            'bot_name': detectedBot,
+            'bot_user_agent': userAgent,
+            'page_location': window.location.href,
+            'page_title': document.title
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
