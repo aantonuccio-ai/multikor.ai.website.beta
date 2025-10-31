@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, DollarSign, Target, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, Target, Rocket } from 'lucide-react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('https://formspree.io/f/manpdqyr', {
         method: 'POST',
@@ -23,10 +23,9 @@ function App() {
         },
         body: JSON.stringify(formData)
       });
-      
+
       if (response.ok) {
         alert('Thank you! We will be in touch soon about early access.');
-        // Clear the form
         setFormData({
           name: '',
           email: '',
@@ -64,7 +63,7 @@ function App() {
             transform: scale(1.15);
           }
         }
-        
+
         @keyframes spin-slow {
           from {
             transform: rotate(0deg);
@@ -159,14 +158,14 @@ function App() {
             <div className="flex justify-between items-center h-20">
               <div className="flex items-center">
                 <a href="/" className="cursor-pointer">
-                  <img 
-                    src="/logo.png" 
-                    alt="Multikor.ai" 
+                  <img
+                    src="/logo.png"
+                    alt="Multikor.ai"
                     className="h-10 md:h-12 hover:opacity-80 transition"
                   />
                 </a>
               </div>
-              
+
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#value-pillars" className="text-gray-300 hover:text-white transition">Value Pillars</a>
                 <a href="#solution" className="text-gray-300 hover:text-white transition">Platform</a>
@@ -204,16 +203,16 @@ function App() {
             <div className="text-white space-y-8">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]">
-                  Turn BPO operations into profit engines.
+                  Transform enterprise operations with intelligent automation.
                 </span>
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                Multikor is the automation platform built for BPO providers. Increase margins 15-30%, win outcome-based contracts, and scale without adding headcount—across customer support, finance & accounting, and procurement.
+                Multikor is the AI-powered automation platform built for businesses of all sizes. Increase margins 15-30%, deliver outcome-based results, and scale efficiently—across all your business services and operations.
               </p>
 
               <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mt-4">
-                Labor arbitrage is over. Outcome-based contracts are the new reality. We give BPO providers the platform to thrive in both.
+                Traditional automation is limited. Agentic AI is the future. We give enterprises and SMBs the platform to achieve both efficiency and innovation across every department.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -238,9 +237,9 @@ function App() {
         <section id="value-pillars" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for BPO Economics</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for Modern Business Operations</h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Purpose-built automation that addresses the three critical challenges facing BPO providers today.
+                Purpose-built automation that addresses the three critical challenges facing businesses of all sizes today.
               </p>
             </div>
 
@@ -256,21 +255,21 @@ function App() {
                 <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
                   <Target className="h-8 w-8 text-white animate-pulse-icon" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Win Outcome-Based Contracts</h3>
-                <p className="text-gray-300">76% of enterprise buyers now demand outcome-based pricing. Multikor gives you the automation infrastructure to profitably deliver guaranteed results and win more contracts.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Deliver Outcome-Based Results</h3>
+                <p className="text-gray-300">76% of enterprise buyers now demand outcome-based pricing. Multikor gives you the automation infrastructure to deliver guaranteed results and exceed performance targets.</p>
               </div>
               <div className="bg-gradient-to-br from-purple-900/30 to-pink-950/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition">
                 <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-purple-500/50 animate-float">
                   <Rocket className="h-8 w-8 text-white animate-pulse-glow" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Scale Without Linear Headcount</h3>
-                <p className="text-gray-300">Automate high-volume operations across customer support (75% of tickets), F&A processes (60% automation), and procurement workflows (70% automation). Grow revenue without proportional cost growth.</p>
+                <p className="text-gray-300">Automate high-volume operations across all business functions—customer service, finance, HR, operations, sales, and more. Grow revenue without proportional cost growth.</p>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-cyan-900/40 to-blue-900/40 backdrop-blur-sm border border-cyan-500/30 p-8 rounded-xl text-center">
-              <p className="text-2xl font-bold mb-2 text-white">One platform. Three high-value verticals.</p>
-              <p className="text-xl text-gray-200">Customer Support • Finance & Accounting • Procurement</p>
+              <p className="text-2xl font-bold mb-2 text-white">One platform. All your business services.</p>
+              <p className="text-xl text-gray-200">Customer Service • Finance • HR • Operations • Sales • Marketing • IT • And More</p>
             </div>
           </div>
         </section>
@@ -280,11 +279,11 @@ function App() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Purpose-Built for BPO Operations
+                  Purpose-Built for Business Operations
                 </span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Unlike horizontal RPA tools that require massive customization, Multikor is purpose-built for BPO operations.
+                Unlike horizontal RPA tools that require massive customization, Multikor is purpose-built for modern business operations across all departments and functions.
               </p>
             </div>
 
@@ -293,9 +292,9 @@ function App() {
                 <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
                   <Zap className="h-8 w-8 text-white animate-pulse-icon" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">BPO-Specific Integrations</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Universal Integrations</h3>
                 <p className="text-gray-300">
-                  Pre-built connectors for client systems. No massive customization projects required.
+                  Pre-built connectors for all major business systems. Works with enterprise and SMB tools alike.
                 </p>
               </div>
 
@@ -305,7 +304,7 @@ function App() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">Transaction-Based Pricing</h3>
                 <p className="text-gray-300">
-                  $0.50-$5 per process. Pricing that aligns with your BPO economics and scales with your volume.
+                  $0.50-$5 per process. Pricing that aligns with your business model and scales with your volume.
                 </p>
               </div>
 
@@ -313,9 +312,9 @@ function App() {
                 <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50 animate-float">
                   <TrendingUp className="h-8 w-8 text-white animate-wiggle" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Multi-Vertical Coverage</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Complete Business Coverage</h3>
                 <p className="text-gray-300">
-                  Support, F&A, and procurement on one platform. Consolidate your automation stack.
+                  Every department and function on one platform. Consolidate your entire automation stack.
                 </p>
               </div>
 
@@ -361,7 +360,7 @@ function App() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Orchestrate</h3>
                 <p className="text-gray-300">
-                  Our proprietary engine creates domain-specific AI workflows tailored to your business. Automates code generation, decisions, and operations.
+                  Our proprietary DAG-based engine creates domain-specific AI workflows tailored to your business. Automates code generation, decisions, and operations using Domain Language Models.
                 </p>
               </div>
 
@@ -380,108 +379,40 @@ function App() {
           </div>
         </section>
 
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">Why Multikor vs. Traditional RPA</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700">
-                <h3 className="text-2xl font-bold text-white mb-6">Horizontal RPA Tools</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Requires massive customization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Generic, not BPO-specific</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">License-based pricing (doesn't match your model)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Separate tools for each vertical</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">6-12 months to deploy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">No client-facing transparency</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-sm p-8 rounded-xl border-2 border-cyan-500/50 shadow-lg shadow-cyan-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Multikor</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Pre-built for BPO operations</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Purpose-built for your industry</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Transaction-based ($0.50-$5 per process)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Support, F&A, procurement on one platform</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">2-4 weeks to deploy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Client-accessible dashboards</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Results Across BPO Providers</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Results Across All Industries</h2>
               <p className="text-2xl text-cyan-400 font-semibold mb-2">
-                Millions in automated cost savings across BPO providers serving Fortune 500 clients
+                Millions in automated cost savings for businesses of all sizes
               </p>
               <p className="text-xl text-gray-300">
-                in customer support, finance operations, and procurement.
+                From Fortune 500 enterprises to scaling SMBs across every industry vertical.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all group">
-                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">75%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Customer Support</h3>
+                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">40-60%</div>
+                <h3 className="text-xl font-bold text-white mb-3">Cost Reduction</h3>
                 <p className="text-gray-300">
-                  Automated ticket resolution with intelligent routing and response generation
+                  Average operational cost savings across all business functions and departments
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition-all group">
-                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>60%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Finance & Accounting</h3>
+                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>10x</div>
+                <h3 className="text-xl font-bold text-white mb-3">Faster Processing</h3>
                 <p className="text-gray-300">
-                  Process automation across invoice processing, reconciliation, and reporting
+                  Accelerated workflows and decision-making across customer service, finance, HR, and operations
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition-all group">
-                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>70%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Procurement</h3>
+                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>99%</div>
+                <h3 className="text-xl font-bold text-white mb-3">Accuracy Rate</h3>
                 <p className="text-gray-300">
-                  Automated workflows for PO processing, vendor management, and approvals
+                  Consistent, error-free execution across all automated business processes and workflows
                 </p>
               </div>
             </div>
@@ -492,13 +423,13 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-10 border border-blue-500/30">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-                Demanding automation from your BPO provider?
+                Ready to transform your business?
               </h2>
               <p className="text-xl text-gray-200 mb-6 text-center leading-relaxed">
-                Enterprise operations leaders: Multikor reduces your total BPO spend by 20-40% while delivering better outcomes.
+                Business leaders: Multikor reduces your operational costs by 20-40% while delivering better outcomes across every department.
               </p>
               <p className="text-lg text-gray-300 mb-8 text-center">
-                Add "Multikor-powered automation" to your next BPO RFP—or contact us about bringing automation in-house.
+                Bring intelligent automation to your business with Multikor's AI-powered platform—built for enterprises and SMBs alike.
               </p>
               <div className="flex justify-center">
                 <a
@@ -516,9 +447,9 @@ function App() {
         <section id="early-access" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Transform Your BPO Operations?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
               <p className="text-xl text-gray-200">
-                Join leading BPO providers increasing margins and winning outcome-based contracts with Multikor. Limited spots available in our private beta.
+                Join forward-thinking businesses—from scaling SMBs to Fortune 500 enterprises—increasing margins and delivering outcome-based results with Multikor. Limited spots available in our private beta.
               </p>
             </div>
 
