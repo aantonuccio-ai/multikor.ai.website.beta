@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, DollarSign, Target, Rocket, Database, Network, Cpu, Shield, Activity } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, Target, Rocket } from 'lucide-react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -170,7 +170,6 @@ function App() {
                 <a href="#value-pillars" className="text-gray-300 hover:text-white transition">Value Pillars</a>
                 <a href="#solution" className="text-gray-300 hover:text-white transition">Platform</a>
                 <a href="#how-it-works" className="text-gray-300 hover:text-white transition">How It Works</a>
-                <a href="#architecture" className="text-gray-300 hover:text-white transition">Architecture</a>
                 <a href="#early-access" className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition">
                   Get Started
                 </a>
@@ -191,7 +190,6 @@ function App() {
                 <a href="#value-pillars" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Value Pillars</a>
                 <a href="#solution" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Platform</a>
                 <a href="#how-it-works" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-                <a href="#architecture" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
                 <a href="#early-access" className="block px-3 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg text-center mt-2" onClick={() => setMobileMenuOpen(false)}>
                   Get Started
                 </a>
@@ -376,145 +374,6 @@ function App() {
                 <p className="text-gray-300">
                   The system continuously learns from your data, self-optimizes, and improves. When your business changes, Multikor adapts automatically.
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="architecture" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Technical Architecture & Methodology
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Cloud-native, agentic AI platform with DAG orchestration at the IaaS organizational level
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-800/50 to-blue-900/30 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 shadow-2xl mb-12">
-              <img
-                src="/architecture-diagram.png"
-                alt="Multikor.ai Architecture Diagram"
-                className="w-full rounded-lg shadow-xl"
-              />
-              <p className="text-center text-gray-400 mt-4 text-sm">
-                High-level architecture - Proprietary technology
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              <div className="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30">
-                <Network className="h-10 w-10 text-blue-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Cloud-Native & Agnostic</h3>
-                <p className="text-gray-300 text-sm">
-                  IaaS-level deployment with seamless integration into any cloud infrastructure and database configuration
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30">
-                <Brain className="h-10 w-10 text-purple-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">DAG Orchestration</h3>
-                <p className="text-gray-300 text-sm">
-                  Directed Acyclic Graph architecture with Domain Language Models as proprietary sources-of-truth
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-cyan-900/20 to-teal-900/20 backdrop-blur-sm p-6 rounded-xl border border-cyan-500/30">
-                <Cpu className="h-10 w-10 text-cyan-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Inferenced Pipeline</h3>
-                <p className="text-gray-300 text-sm">
-                  AI-powered code generation with ground truth source graph for BDU LLM inferenced pipeline
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 backdrop-blur-sm rounded-xl border border-blue-500/40 p-8">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-blue-500 to-cyan-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
-                    1
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">Phase 1: Ingest & Allocate</h3>
-                    <ul className="grid md:grid-cols-2 gap-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Ingest raw data</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Catalog and orchestrate tags</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Validation & verification</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Build knowledge lake</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-xl border border-purple-500/40 p-8">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-purple-500 to-blue-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
-                    2
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">Phase 2: Source & Vector Graphing</h3>
-                    <ul className="grid md:grid-cols-2 gap-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>DAG allocation & tagging</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Domain dependency indices</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Resource allocation graph (RAG)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Retrieval-augmented generation</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-sm rounded-xl border border-green-500/40 p-8">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
-                    3
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">Phase 3: Automated LLM Generation CI/CD</h3>
-                    <ul className="grid md:grid-cols-2 gap-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Automated LLM for BDU</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>Confidence validation</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>AI mesh integration</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-                        <span>DEV → QA → PRD deployment</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
