@@ -208,11 +208,11 @@ function App() {
               </h1>
 
               <p className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                Multikor is the AI-powered automation platform built for enterprise operations. Increase margins 15-30%, deliver outcome-based results, and scale efficiently—across customer support, finance & accounting, and procurement.
+                Multikor is the AI-powered automation platform built for businesses of all sizes. Increase margins 15-30%, deliver outcome-based results, and scale efficiently—across all your business services and operations.
               </p>
 
               <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mt-4">
-                Traditional automation is limited. Agentic AI is the future. We give enterprises the platform to achieve both efficiency and innovation.
+                Traditional automation is limited. Agentic AI is the future. We give enterprises and SMBs the platform to achieve both efficiency and innovation across every department.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -237,9 +237,9 @@ function App() {
         <section id="value-pillars" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for Enterprise Operations</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for Modern Business Operations</h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Purpose-built automation that addresses the three critical challenges facing enterprise operations today.
+                Purpose-built automation that addresses the three critical challenges facing businesses of all sizes today.
               </p>
             </div>
 
@@ -263,13 +263,13 @@ function App() {
                   <Rocket className="h-8 w-8 text-white animate-pulse-glow" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Scale Without Linear Headcount</h3>
-                <p className="text-gray-300">Automate high-volume operations across customer support (75% of tickets), F&A processes (60% automation), and procurement workflows (70% automation). Grow revenue without proportional cost growth.</p>
+                <p className="text-gray-300">Automate high-volume operations across all business functions—customer service, finance, HR, operations, sales, and more. Grow revenue without proportional cost growth.</p>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-cyan-900/40 to-blue-900/40 backdrop-blur-sm border border-cyan-500/30 p-8 rounded-xl text-center">
-              <p className="text-2xl font-bold mb-2 text-white">One platform. Three high-value verticals.</p>
-              <p className="text-xl text-gray-200">Customer Support • Finance & Accounting • Procurement</p>
+              <p className="text-2xl font-bold mb-2 text-white">One platform. All your business services.</p>
+              <p className="text-xl text-gray-200">Customer Service • Finance • HR • Operations • Sales • Marketing • IT • And More</p>
             </div>
           </div>
         </section>
@@ -279,11 +279,11 @@ function App() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Purpose-Built for Enterprise Operations
+                  Purpose-Built for Business Operations
                 </span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Unlike horizontal RPA tools that require massive customization, Multikor is purpose-built for enterprise operations.
+                Unlike horizontal RPA tools that require massive customization, Multikor is purpose-built for modern business operations across all departments and functions.
               </p>
             </div>
 
@@ -292,9 +292,9 @@ function App() {
                 <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
                   <Zap className="h-8 w-8 text-white animate-pulse-icon" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Enterprise Integrations</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Universal Integrations</h3>
                 <p className="text-gray-300">
-                  Pre-built connectors for enterprise systems. No massive customization projects required.
+                  Pre-built connectors for all major business systems. Works with enterprise and SMB tools alike.
                 </p>
               </div>
 
@@ -312,9 +312,9 @@ function App() {
                 <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50 animate-float">
                   <TrendingUp className="h-8 w-8 text-white animate-wiggle" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">Multi-Vertical Coverage</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Complete Business Coverage</h3>
                 <p className="text-gray-300">
-                  Support, F&A, and procurement on one platform. Consolidate your automation stack.
+                  Every department and function on one platform. Consolidate your entire automation stack.
                 </p>
               </div>
 
@@ -382,37 +382,37 @@ function App() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Results Across Enterprises</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Results Across All Industries</h2>
               <p className="text-2xl text-cyan-400 font-semibold mb-2">
-                Millions in automated cost savings across Fortune 500 enterprises
+                Millions in automated cost savings for businesses of all sizes
               </p>
               <p className="text-xl text-gray-300">
-                in customer support, finance operations, and procurement.
+                From Fortune 500 enterprises to scaling SMBs across every industry vertical.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all group">
-                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">75%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Customer Support</h3>
+                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">40-60%</div>
+                <h3 className="text-xl font-bold text-white mb-3">Cost Reduction</h3>
                 <p className="text-gray-300">
-                  Automated ticket resolution with intelligent routing and response generation
+                  Average operational cost savings across all business functions and departments
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition-all group">
-                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>60%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Finance & Accounting</h3>
+                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>10x</div>
+                <h3 className="text-xl font-bold text-white mb-3">Faster Processing</h3>
                 <p className="text-gray-300">
-                  Process automation across invoice processing, reconciliation, and reporting
+                  Accelerated workflows and decision-making across customer service, finance, HR, and operations
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition-all group">
-                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>70%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Procurement</h3>
+                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>99%</div>
+                <h3 className="text-xl font-bold text-white mb-3">Accuracy Rate</h3>
                 <p className="text-gray-300">
-                  Automated workflows for PO processing, vendor management, and approvals
+                  Consistent, error-free execution across all automated business processes and workflows
                 </p>
               </div>
             </div>
@@ -423,13 +423,13 @@ function App() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-10 border border-blue-500/30">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-                Ready to transform your operations?
+                Ready to transform your business?
               </h2>
               <p className="text-xl text-gray-200 mb-6 text-center leading-relaxed">
-                Enterprise operations leaders: Multikor reduces your operational costs by 20-40% while delivering better outcomes.
+                Business leaders: Multikor reduces your operational costs by 20-40% while delivering better outcomes across every department.
               </p>
               <p className="text-lg text-gray-300 mb-8 text-center">
-                Bring intelligent automation to your enterprise with Multikor's AI-powered platform.
+                Bring intelligent automation to your business with Multikor's AI-powered platform—built for enterprises and SMBs alike.
               </p>
               <div className="flex justify-center">
                 <a
@@ -447,9 +447,9 @@ function App() {
         <section id="early-access" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Transform Your Operations?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
               <p className="text-xl text-gray-200">
-                Join leading enterprises increasing margins and delivering outcome-based results with Multikor. Limited spots available in our private beta.
+                Join forward-thinking businesses—from scaling SMBs to Fortune 500 enterprises—increasing margins and delivering outcome-based results with Multikor. Limited spots available in our private beta.
               </p>
             </div>
 
