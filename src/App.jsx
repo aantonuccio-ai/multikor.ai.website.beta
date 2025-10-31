@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, DollarSign, Target, Rocket } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Brain, TrendingUp, Menu, X, Database, Network, Cpu, Shield, Activity } from 'lucide-react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,13 +8,12 @@ function App() {
     email: '',
     company: '',
     role: '',
-    companySize: '',
-    challenge: ''
+    interest: ''
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('https://formspree.io/f/manpdqyr', {
         method: 'POST',
@@ -23,17 +22,15 @@ function App() {
         },
         body: JSON.stringify(formData)
       });
-      
+
       if (response.ok) {
-        alert('Thank you! We will be in touch soon about early access.');
-        // Clear the form
+        alert('Thank you! We will be in touch soon.');
         setFormData({
           name: '',
           email: '',
           company: '',
           role: '',
-          companySize: '',
-          challenge: ''
+          interest: ''
         });
       } else {
         alert('Something went wrong. Please try again.');
@@ -52,7 +49,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-black">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
       <style>{`
         @keyframes pulse-glow {
           0%, 100% {
@@ -60,17 +57,8 @@ function App() {
             transform: scale(1);
           }
           50% {
-            opacity: 0.7;
-            transform: scale(1.15);
-          }
-        }
-        
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
+            opacity: 0.8;
+            transform: scale(1.05);
           }
         }
 
@@ -79,100 +67,65 @@ function App() {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-10px);
+            transform: translateY(-20px);
           }
         }
 
-        @keyframes pulse-icon {
+        @keyframes gradient-shift {
           0%, 100% {
-            transform: scale(1);
+            background-position: 0% 50%;
           }
           50% {
-            transform: scale(1.1);
-          }
-        }
-
-        @keyframes wiggle {
-          0%, 100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(-5deg);
-          }
-          75% {
-            transform: rotate(5deg);
-          }
-        }
-
-        @keyframes number-pulse {
-          0%, 100% {
-            transform: scale(1);
-            text-shadow: 0 0 15px currentColor;
-          }
-          50% {
-            transform: scale(1.02);
-            text-shadow: 0 0 20px currentColor;
+            background-position: 100% 50%;
           }
         }
 
         .animate-pulse-glow {
-          animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 3s linear infinite;
+          animation: pulse-glow 3s ease-in-out infinite;
         }
 
         .animate-float {
-          animation: float 3s ease-in-out infinite;
+          animation: float 4s ease-in-out infinite;
         }
 
-        .animate-pulse-icon {
-          animation: pulse-icon 2s ease-in-out infinite;
-        }
-
-        .animate-wiggle {
-          animation: wiggle 2.5s ease-in-out infinite;
-        }
-
-        .animate-number-pulse {
-          animation: number-pulse 3s ease-in-out infinite;
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient-shift 8s ease infinite;
         }
       `}</style>
 
-      <div className="fixed inset-0 w-full h-screen z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-        >
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
+      <div className="fixed inset-0 w-full h-screen z-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-gray-900/40 to-gray-900/60" />
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 20px 20px, rgba(59, 130, 246, 0.1) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
       <div className="relative z-10">
-        <nav className="fixed top-0 w-full backdrop-blur-md bg-black/30 border-b border-white/10 z-50">
+        <nav className="fixed top-0 w-full backdrop-blur-md bg-black/30 border-b border-blue-500/20 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
-              <div className="flex items-center">
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/multikor-logo.png"
+                  alt="Multikor.ai Logo"
+                  className="h-10 w-10 animate-pulse-glow"
+                />
                 <a href="/" className="cursor-pointer">
-                  <img 
-                    src="/logo.png" 
-                    alt="Multikor.ai" 
-                    className="h-10 md:h-12 hover:opacity-80 transition"
-                  />
+                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    Multikor.ai
+                  </span>
                 </a>
               </div>
-              
+
               <div className="hidden md:flex items-center space-x-8">
-                <a href="#value-pillars" className="text-gray-300 hover:text-white transition">Value Pillars</a>
-                <a href="#solution" className="text-gray-300 hover:text-white transition">Platform</a>
-                <a href="#how-it-works" className="text-gray-300 hover:text-white transition">How It Works</a>
-                <a href="#early-access" className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition">
-                  Get Started
+                <a href="#concept" className="text-gray-300 hover:text-blue-400 transition">Concept</a>
+                <a href="#architecture" className="text-gray-300 hover:text-blue-400 transition">Architecture</a>
+                <a href="#methodology" className="text-gray-300 hover:text-blue-400 transition">Methodology</a>
+                <a href="#metrics" className="text-gray-300 hover:text-blue-400 transition">Metrics</a>
+                <a href="#contact" className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-lg hover:from-blue-400 hover:to-cyan-400 transition">
+                  Get in Touch
                 </a>
               </div>
 
@@ -186,13 +139,14 @@ function App() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden backdrop-blur-md bg-black/90 border-t border-white/10">
+            <div className="md:hidden backdrop-blur-md bg-black/90 border-t border-blue-500/20">
               <div className="px-4 pt-2 pb-3 space-y-1">
-                <a href="#value-pillars" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Value Pillars</a>
-                <a href="#solution" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Platform</a>
-                <a href="#how-it-works" className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-                <a href="#early-access" className="block px-3 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg text-center mt-2" onClick={() => setMobileMenuOpen(false)}>
-                  Get Started
+                <a href="#concept" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Concept</a>
+                <a href="#architecture" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
+                <a href="#methodology" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Methodology</a>
+                <a href="#metrics" className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/10 rounded" onClick={() => setMobileMenuOpen(false)}>Metrics</a>
+                <a href="#contact" className="block px-3 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg text-center mt-2" onClick={() => setMobileMenuOpen(false)}>
+                  Get in Touch
                 </a>
               </div>
             </div>
@@ -200,325 +154,384 @@ function App() {
         </nav>
 
         <section className="min-h-screen flex items-center justify-center px-4 pt-20">
-          <div className="max-w-4xl w-full text-center">
+          <div className="max-w-5xl w-full text-center">
             <div className="text-white space-y-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]">
-                  Turn BPO operations into profit engines.
+              <div className="flex justify-center mb-8">
+                <img
+                  src="/multikor-logo.png"
+                  alt="Multikor.ai"
+                  className="h-32 w-32 animate-float drop-shadow-[0_0_40px_rgba(59,130,246,0.6)]"
+                />
+              </div>
+
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">
+                  Multikor.ai
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-                Multikor is the automation platform built for BPO providers. Increase margins 15-30%, win outcome-based contracts, and scale without adding headcount—across customer support, finance & accounting, and procurement.
+              <p className="text-xl md:text-2xl lg:text-3xl text-blue-200 leading-relaxed max-w-4xl mx-auto font-light">
+                Cloud-Native Agentic AI for Enterprise Infrastructure
               </p>
 
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto mt-4">
-                Labor arbitrage is over. Outcome-based contracts are the new reality. We give BPO providers the platform to thrive in both.
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mt-6">
+                Autonomous AI-powered orchestration derived from Directed Acyclic Graph (DAG) architecture,
+                operating with Domain Language Models (DLM) as proprietary sources-of-truth at the neural networking level
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
                 <a
-                  href="#early-access"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition shadow-lg shadow-cyan-500/50"
+                  href="#concept"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:from-blue-400 hover:to-cyan-400 transition shadow-lg shadow-blue-500/50"
                 >
-                  Calculate Your Margin Impact
+                  Explore the Technology
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
                 <a
-                  href="#solution"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-lg hover:bg-white/20 transition"
+                  href="#contact"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/10 backdrop-blur-sm border-2 border-blue-400/30 rounded-lg hover:bg-white/20 hover:border-blue-400/50 transition"
                 >
-                  See How It Works
+                  Contact Us
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="value-pillars" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+        <section id="concept" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/40 via-gray-900/60 to-black/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built for BPO Economics</h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Purpose-built automation that addresses the three critical challenges facing BPO providers today.
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  Multikor.ai Concept
+                </span>
+              </h2>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+                Enterprise-grade AI orchestration at the Infrastructure as a Service (IaaS) level
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-green-900/30 to-emerald-950/30 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition">
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50 animate-float">
-                  <TrendingUp className="h-8 w-8 text-white animate-wiggle" />
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 hover:border-blue-500/50 transition">
+                <div className="bg-gradient-to-br from-blue-500 to-cyan-500 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-blue-500/50">
+                  <Network className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Increase Margins 15-30%</h3>
-                <p className="text-gray-300">Reduce cost-per-process by 40-60% through intelligent automation while maintaining service quality. Your clients get better outcomes. You capture higher margins.</p>
+                <h3 className="text-2xl font-bold text-white mb-4">Cloud-Native & Agnostic</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Solution is a cloud-native and cloud-agnostic Agentic AI for enterprise utilization
+                  at the Infrastructure as a Service (IaaS) Organizational level
+                </p>
               </div>
-              <div className="bg-gradient-to-br from-cyan-900/30 to-blue-950/30 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition">
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
-                  <Target className="h-8 w-8 text-white animate-pulse-icon" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Win Outcome-Based Contracts</h3>
-                <p className="text-gray-300">76% of enterprise buyers now demand outcome-based pricing. Multikor gives you the automation infrastructure to profitably deliver guaranteed results and win more contracts.</p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-900/30 to-pink-950/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition">
-                <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-purple-500/50 animate-float">
-                  <Rocket className="h-8 w-8 text-white animate-pulse-glow" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Scale Without Linear Headcount</h3>
-                <p className="text-gray-300">Automate high-volume operations across customer support (75% of tickets), F&A processes (60% automation), and procurement workflows (70% automation). Grow revenue without proportional cost growth.</p>
-              </div>
-            </div>
 
-            <div className="bg-gradient-to-r from-cyan-900/40 to-blue-900/40 backdrop-blur-sm border border-cyan-500/30 p-8 rounded-xl text-center">
-              <p className="text-2xl font-bold mb-2 text-white">One platform. Three high-value verticals.</p>
-              <p className="text-xl text-gray-200">Customer Support • Finance & Accounting • Procurement</p>
+              <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition">
+                <div className="bg-gradient-to-br from-purple-500 to-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-purple-500/50">
+                  <Brain className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">DAG Orchestration</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  The autonomous and agentic AI-powered solution is derived from Directed Acyclic Graph (DAG)
+                  orchestration based upon Domain Language Models (DLM), as proprietary sources-of-truth,
+                  operating at the neural networking level
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-cyan-900/30 to-teal-900/30 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition">
+                <div className="bg-gradient-to-br from-cyan-500 to-teal-500 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50">
+                  <Cpu className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Inferenced Code Generation</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  The DAG creates domain-allocated, user-centric inferenced code generation for a ground truth
+                  source graph to be utilized as scaffolding for the Business Development Unit (BDU) Large
+                  Language Model (LLM) inferenced pipeline
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition">
+                <div className="bg-gradient-to-br from-green-500 to-emerald-500 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50">
+                  <Database className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Seamless Integration</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Multikor.ai seamlessly integrates into cloud structure and database configurations with
+                  source validation and confidence variable controls for a CI/CD enterprise knowledge pipeline
+                  which evolves in scalability and elasticity
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="solution" className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+        <section id="architecture" className="py-24 px-4 sm:px-6 lg:px-8 bg-black/60 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Purpose-Built for BPO Operations
+                  High Level Architecture
                 </span>
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Unlike horizontal RPA tools that require massive customization, Multikor is purpose-built for BPO operations.
+                Enterprise-grade infrastructure designed for scalability, security, and performance
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition">
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/50 animate-float">
-                  <Zap className="h-8 w-8 text-white animate-pulse-icon" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">BPO-Specific Integrations</h3>
+            <div className="bg-gradient-to-br from-gray-800/50 to-blue-900/30 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 shadow-2xl">
+              <img
+                src="/architecture-diagram.png"
+                alt="Multikor.ai Architecture Diagram"
+                className="w-full rounded-lg shadow-xl"
+              />
+              <p className="text-center text-gray-400 mt-4 text-sm">
+                Proprietary architecture diagram - For authorized viewing only
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              <div className="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30">
+                <Shield className="h-10 w-10 text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Secure by Design</h3>
                 <p className="text-gray-300">
-                  Pre-built connectors for client systems. No massive customization projects required.
+                  Built with enterprise-grade security protocols and compliance standards
                 </p>
               </div>
-
-              <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition">
-                <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-purple-500/50 animate-float">
-                  <Brain className="h-8 w-8 text-white animate-pulse-glow" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Transaction-Based Pricing</h3>
+              <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30">
+                <Activity className="h-10 w-10 text-purple-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Real-Time Processing</h3>
                 <p className="text-gray-300">
-                  $0.50-$5 per process. Pricing that aligns with your BPO economics and scales with your volume.
+                  Low-latency data processing with continuous monitoring and optimization
                 </p>
               </div>
-
-              <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition">
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-green-500/50 animate-float">
-                  <TrendingUp className="h-8 w-8 text-white animate-wiggle" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Multi-Vertical Coverage</h3>
+              <div className="bg-gradient-to-br from-cyan-900/20 to-teal-900/20 backdrop-blur-sm p-6 rounded-xl border border-cyan-500/30">
+                <TrendingUp className="h-10 w-10 text-cyan-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Scalable Infrastructure</h3>
                 <p className="text-gray-300">
-                  Support, F&A, and procurement on one platform. Consolidate your automation stack.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-orange-900/20 to-red-900/20 backdrop-blur-sm p-8 rounded-xl border border-orange-500/30 hover:border-orange-500/50 transition">
-                <div className="bg-gradient-to-br from-orange-500 to-red-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-orange-500/50 animate-float">
-                  <CheckCircle className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">Client Transparency</h3>
-                <p className="text-gray-300">
-                  Performance dashboards your clients can access. Build trust and win renewals.
+                  Elastic architecture that grows with your business needs
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+        <section id="methodology" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black/40 via-gray-900/60 to-black/40 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">From Fragmented to Unified in Weeks</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12 relative">
-              <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-500 via-purple-500 to-green-500 opacity-30"></div>
-
-              <div className="relative group">
-                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/50 transition-transform group-hover:scale-110 group-hover:rotate-12">
-                  <svg className="w-8 h-8 animate-pulse-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Integrate</h3>
-                <p className="text-gray-300">
-                  Multikor plugs into your existing infrastructure—Salesforce, ERPs, databases, whatever you use. Cloud-agnostic architecture works anywhere.
-                </p>
-              </div>
-
-              <div className="relative group">
-                <div className="bg-gradient-to-br from-purple-500 to-pink-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-purple-500/50 transition-transform group-hover:scale-110 group-hover:-rotate-12">
-                  <svg className="w-8 h-8 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Orchestrate</h3>
-                <p className="text-gray-300">
-                  Our proprietary engine creates domain-specific AI workflows tailored to your business. Automates code generation, decisions, and operations.
-                </p>
-              </div>
-
-              <div className="relative group">
-                <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-green-500/50 transition-transform group-hover:scale-110">
-                  <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Evolve</h3>
-                <p className="text-gray-300">
-                  The system continuously learns from your data, self-optimizes, and improves. When your business changes, Multikor adapts automatically.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">Why Multikor vs. Traditional RPA</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700">
-                <h3 className="text-2xl font-bold text-white mb-6">Horizontal RPA Tools</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Requires massive customization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Generic, not BPO-specific</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">License-based pricing (doesn't match your model)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">Separate tools for each vertical</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">6-12 months to deploy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-3 text-2xl">✗</span>
-                    <span className="text-gray-300">No client-facing transparency</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-sm p-8 rounded-xl border-2 border-cyan-500/50 shadow-lg shadow-cyan-500/20">
-                <h3 className="text-2xl font-bold text-white mb-6">Multikor</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Pre-built for BPO operations</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Purpose-built for your industry</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Transaction-based ($0.50-$5 per process)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Support, F&A, procurement on one platform</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">2-4 weeks to deploy</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-3 text-2xl">✓</span>
-                    <span className="text-white font-medium">Client-accessible dashboards</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Proven Results Across BPO Providers</h2>
-              <p className="text-2xl text-cyan-400 font-semibold mb-2">
-                Millions in automated cost savings across BPO providers serving Fortune 500 clients
-              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Phased Approach Method</h2>
               <p className="text-xl text-gray-300">
-                in customer support, finance operations, and procurement.
+                A systematic three-phase implementation strategy for enterprise AI deployment
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/50 transition-all group">
-                <div className="text-5xl font-bold text-cyan-400 mb-2 animate-number-pulse">75%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Customer Support</h3>
-                <p className="text-gray-300">
-                  Automated ticket resolution with intelligent routing and response generation
-                </p>
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-blue-900/40 to-cyan-900/40 backdrop-blur-sm rounded-xl border border-blue-500/40 p-8 hover:border-blue-400/60 transition">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gradient-to-br from-blue-500 to-cyan-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    1
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-4">Phase 1: Ingest & Allocate</h3>
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Ingest raw data</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Catalog and Orchestrate Tags and Vertices</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Validation & Verification Automated Workflow</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Build Knowledge Lake</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Validation & Reconciliation Automated Workflow</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition-all group">
-                <div className="text-5xl font-bold text-purple-400 mb-2 animate-number-pulse" style={{animationDelay: '0.3s'}}>60%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Finance & Accounting</h3>
-                <p className="text-gray-300">
-                  Process automation across invoice processing, reconciliation, and reporting
-                </p>
+              <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-xl border border-purple-500/40 p-8 hover:border-purple-400/60 transition">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gradient-to-br from-purple-500 to-blue-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    2
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-4">Phase 2: Source & Vector Graphing</h3>
+                    <p className="text-gray-300 mb-3 font-semibold">Metadata Rigged-Confinement Allocation</p>
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>DAG Allocation & Tagging</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Validation & Reconciliation Automated Workflow</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Orchestrate Domain Dependency Indices</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Confidence and Accuracy Automated Workflow</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Attribute and Index Resource Allocation Graph (RAG)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Validation & Confirmation of Rigged-Confined Allocation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Retrieval-Augmented Generation (RAG)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Confidence Validation and Variable Reconciliation of RAG</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm p-8 rounded-xl border border-green-500/30 hover:border-green-500/50 transition-all group">
-                <div className="text-5xl font-bold text-green-400 mb-2 animate-number-pulse" style={{animationDelay: '0.6s'}}>70%</div>
-                <h3 className="text-xl font-bold text-white mb-3">Procurement</h3>
-                <p className="text-gray-300">
-                  Automated workflows for PO processing, vendor management, and approvals
-                </p>
+              <div className="bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-sm rounded-xl border border-green-500/40 p-8 hover:border-green-400/60 transition">
+                <div className="flex items-start gap-4">
+                  <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white font-bold text-2xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-4">Phase 3: Automated LLM Generation CI/CD Pipeline</h3>
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Automated LLM Generation for BDU allocation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Confidence Validation and Variable Reconciliation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Automated LLM Generation for BDU with Inferenced-Rigged Allocation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Validation & Confirmation of Generative BDU LLMs</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Integrate with AI Mesh and Service Templates for Deployment</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Run Unit/Integration/Threshold/Security Automated Testing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Confidence Validation and Interoperability Automated Workflow</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Staging → DEV → QA → PRD Phased Deployment and Acceptance Testing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                        <span>Automated CI/CD Pipeline Event Workflows Initiated</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-sm rounded-xl p-10 border border-blue-500/30">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-                Demanding automation from your BPO provider?
-              </h2>
-              <p className="text-xl text-gray-200 mb-6 text-center leading-relaxed">
-                Enterprise operations leaders: Multikor reduces your total BPO spend by 20-40% while delivering better outcomes.
+        <section id="metrics" className="py-24 px-4 sm:px-6 lg:px-8 bg-black/60 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Derived Metrics</h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Comprehensive monitoring and analytics for enterprise AI performance
               </p>
-              <p className="text-lg text-gray-300 mb-8 text-center">
-                Add "Multikor-powered automation" to your next BPO RFP—or contact us about bringing automation in-house.
-              </p>
-              <div className="flex justify-center">
-                <a
-                  href="#early-access"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-500 hover:to-purple-500 transition shadow-lg shadow-blue-500/50"
-                >
-                  Enterprise Automation Options
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition">
+                <Zap className="h-10 w-10 text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Data Quality and Telemetry</h3>
+                <p className="text-gray-300 text-sm">Real-time monitoring of data integrity and system performance</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition">
+                <Brain className="h-10 w-10 text-purple-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Model Performance</h3>
+                <p className="text-gray-300 text-sm">Continuous evaluation of AI model accuracy and efficiency</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-cyan-900/30 to-teal-900/30 backdrop-blur-sm p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-400/50 transition">
+                <TrendingUp className="h-10 w-10 text-cyan-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Operational Efficiency</h3>
+                <p className="text-gray-300 text-sm">Track and optimize operational workflows and resource utilization</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-sm p-6 rounded-xl border border-green-500/30 hover:border-green-400/50 transition">
+                <CheckCircle className="h-10 w-10 text-green-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Acceptance/Launch Rates</h3>
+                <p className="text-gray-300 text-sm">Measure deployment success and user adoption metrics</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 backdrop-blur-sm p-6 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition">
+                <Activity className="h-10 w-10 text-orange-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Confidence Variability</h3>
+                <p className="text-gray-300 text-sm">Monitor prediction confidence and model reliability</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-pink-900/30 to-purple-900/30 backdrop-blur-sm p-6 rounded-xl border border-pink-500/30 hover:border-pink-400/50 transition">
+                <Shield className="h-10 w-10 text-pink-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Metadata Analysis Verification</h3>
+                <p className="text-gray-300 text-sm">Ensure data accuracy and metadata consistency</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-indigo-900/30 to-blue-900/30 backdrop-blur-sm p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-400/50 transition">
+                <Database className="h-10 w-10 text-indigo-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">BDU Impact Metrics per I/O</h3>
+                <p className="text-gray-300 text-sm">Analyze business development unit performance and impact</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-violet-900/30 to-purple-900/30 backdrop-blur-sm p-6 rounded-xl border border-violet-500/30 hover:border-violet-400/50 transition">
+                <TrendingUp className="h-10 w-10 text-violet-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">BDU Overall Performance</h3>
+                <p className="text-gray-300 text-sm">Comprehensive cost tracking and performance optimization</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 backdrop-blur-sm p-6 rounded-xl border border-teal-500/30 hover:border-teal-400/50 transition">
+                <Shield className="h-10 w-10 text-teal-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Governance & Compliance</h3>
+                <p className="text-gray-300 text-sm">Ensure adherence to regulatory and compliance standards</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-emerald-900/30 to-green-900/30 backdrop-blur-sm p-6 rounded-xl border border-emerald-500/30 hover:border-emerald-400/50 transition md:col-span-2 lg:col-span-1">
+                <Cpu className="h-10 w-10 text-emerald-400 mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Refactoring Analysis</h3>
+                <p className="text-gray-300 text-sm">Automated analysis and optimization recommendations</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="early-access" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900">
+        <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-cyan-900 to-blue-900">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Transform Your BPO Operations?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Get in Touch</h2>
               <p className="text-xl text-gray-200">
-                Join leading BPO providers increasing margins and winning outcome-based contracts with Multikor. Limited spots available in our private beta.
+                Interested in learning more about Multikor.ai? Contact us to discuss how our enterprise AI platform can transform your infrastructure.
               </p>
             </div>
 
@@ -533,7 +546,7 @@ function App() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
                       placeholder="John Smith"
                     />
                   </div>
@@ -545,7 +558,7 @@ function App() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
                       placeholder="john@company.com"
                     />
                   </div>
@@ -560,8 +573,8 @@ function App() {
                       required
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
-                      placeholder="Acme Corp"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
+                      placeholder="Your Company"
                     />
                   </div>
                   <div>
@@ -572,55 +585,35 @@ function App() {
                       required
                       value={formData.role}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
-                      placeholder="CTO, VP Engineering, etc."
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
+                      placeholder="CTO, Engineering Director, etc."
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-white mb-2">Company Size *</label>
-                    <select
-                      name="companySize"
-                      required
-                      value={formData.companySize}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
-                    >
-                      <option value="" className="bg-gray-900">Select size</option>
-                      <option value="1-50" className="bg-gray-900">1-50 employees</option>
-                      <option value="51-200" className="bg-gray-900">51-200 employees</option>
-                      <option value="201-1000" className="bg-gray-900">201-1000 employees</option>
-                      <option value="1001-5000" className="bg-gray-900">1001-5000 employees</option>
-                      <option value="5000+" className="bg-gray-900">5000+ employees</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-white mb-2">Primary AI Challenge *</label>
-                    <select
-                      name="challenge"
-                      required
-                      value={formData.challenge}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm"
-                    >
-                      <option value="" className="bg-gray-900">Select challenge</option>
-                      <option value="fragmented-tools" className="bg-gray-900">Fragmented AI tools</option>
-                      <option value="deployment-time" className="bg-gray-900">Long deployment times</option>
-                      <option value="manual-maintenance" className="bg-gray-900">Too much manual maintenance</option>
-                      <option value="lacks-context" className="bg-gray-900">AI lacks business context</option>
-                      <option value="integration" className="bg-gray-900">Integration challenges</option>
-                      <option value="other" className="bg-gray-900">Other</option>
-                    </select>
-                  </div>
+                <div className="mb-6">
+                  <label className="block text-sm font-semibold text-white mb-2">Area of Interest *</label>
+                  <select
+                    name="interest"
+                    required
+                    value={formData.interest}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent backdrop-blur-sm"
+                  >
+                    <option value="" className="bg-gray-900">Select an option</option>
+                    <option value="architecture" className="bg-gray-900">Architecture & Infrastructure</option>
+                    <option value="implementation" className="bg-gray-900">Implementation & Deployment</option>
+                    <option value="partnership" className="bg-gray-900">Partnership Opportunities</option>
+                    <option value="demo" className="bg-gray-900">Request a Demo</option>
+                    <option value="other" className="bg-gray-900">Other</option>
+                  </select>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-cyan-400 hover:to-blue-500 transition flex items-center justify-center shadow-lg shadow-cyan-500/50"
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-400 hover:to-cyan-400 transition flex items-center justify-center shadow-lg shadow-blue-500/50"
                 >
-                  Request Early Access
+                  Send Message
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </form>
@@ -628,9 +621,10 @@ function App() {
           </div>
         </section>
 
-        <footer className="py-8 px-4 bg-black border-t border-white/10">
+        <footer className="py-8 px-4 bg-black border-t border-blue-500/20">
           <div className="max-w-7xl mx-auto text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} Multikor.ai - All rights reserved</p>
+            <p className="text-sm mt-2 text-gray-500">Enterprise AI Infrastructure Solutions</p>
           </div>
         </footer>
       </div>
